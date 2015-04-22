@@ -7,8 +7,14 @@ public class Mario {
 
     public static void main(String[] args) {
         Console input = System.console();
-        String hgtstr = input.readLine("Height: ");
-        int height = Integer.parseInt(hgtstr);
+        int height = -1;
+        while (height < 0 || height > 23) { 
+            try {
+               String hgtstr = input.readLine("Height: ");
+               height = Integer.parseInt(hgtstr);
+            } catch (NumberFormatException e) {
+            }
+        }
 
         Pyramid pyramid = new Pyramid();
         pyramid.setHeight(height);
